@@ -1,0 +1,55 @@
+Venninator pipeline
+
+Step 1: All-vs-all BLAST searching
+
+1.	Create database
+	i.	Concatenate all .fa files
+	i.	cat *.fa > combined.fa
+	ii.	./makeblast.db with concatenated .fa file
+
+
+2.	Preliminary examination: blastn or blastp?
+	i.	Randomly select 100 sequences
+	ii.	Create two separate databases with these; one untranslated for blastn, one translated to amino acids for blastp
+	iii.	Run ./blastn and ./blastp on both (for blastp) and respectively concatenate results
+	iv.	[This step up for debate!!] Compare top hit for all 100 queries under each style. If query/top hit pairs are same under both blastn and blastp for >75%(?) of queries, then blastp performs as well as blastn, and we can proceed with blasp. Else, proceed with blastn, because information is being lost in amino acid translation.
+
+
+3.	Pairwise comparisons
+	i.	For each genome: every time “>” is encountered, use what follows as query
+ii.	BLAST that query against database using:
+./blastn –query name_of_query –db name_of_database    –outfmt “6 qseqid sseqid length evalue” –out out_name_of_query
+iii.	Concatenate all out_name_of_query files 
+iv.	Filtration:
+i.	Sort alphabetically between query and match such that a->b and b->a are both listed as a->b, then remove one
+ii.	If hit within same species (a->a)
+iii.	If length of alignment with hit < 75%
+1.	Length might be reported in #, not %. Might have to acquire query length and divide into alignment length.
+
+
+
+
+
+
+Step 2: Markov Clustering
+The MCL suite contains several programs:
+mcxload creates a native network file and a dictionary file that maps network nodes to labels; 
+mcl does the actual clustering; 
+mcxdump generates labeled output(?)
+
+1.	Create ABC-formatted file (A = query, B = hit, C = edge weight (in the form of e-value)):
+cut –f 1,2,4 name_of_blast_output > seq.abc
+
+2.	Load seq.abc with “mcxload” to create a network file (seq.mci) and dictionary file (seq.tab): 
+mcxload –abc seq.abc --stream-mirror --stream-neg-log10 –stream-tf ‘ceil(XXX)’ –o seq.mci –write-tab seq.tab
+
+--stream-mirror = undirected network (a->b only, no separate b->a value)
+***See clmprotocols – implies that filtration work is done for you, so is the first filtration step above unnecessary?***
+
+--stream-neg-log10 = log transform e-values 
+
+--stream-tf ‘ceil(XXX)’ = XXX is the value of maximum allowed edge weight; they recommend 200, such that 1e^-200 is maximum value.
+
+3.	Normalize weights??
+
+4.	
