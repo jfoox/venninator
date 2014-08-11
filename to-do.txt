@@ -1,0 +1,13 @@
+To do
+
+1.	First class: Concatenate all fasta files
+	a.	Save concatenated file as “reference.fa” to be used for local BLAST database
+	b.	Print the concatenated file
+
+2.	What wrappers are available to communicate between Local BLAST and Python? (Most have been written to communicate between Python and the BLAST web service)
+http://biopython.org/DIST/docs/api/Bio.Blast.Applications-module.html
+
+Requires intermediary class: iteratively takes sequence query as object to pass thru wrapper class to the local BLAST, then returns result
+	In this class, >> blast[x]_output.txt
+
+3.	Create a dummy dataset (series of fasta files)
