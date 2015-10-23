@@ -2,15 +2,15 @@ VENNINATOR: Gene Content Matrix Assembler using Orthologs Clustered under Expect
 Version 0.1
 October 23, 2015
 
-AUTHORS: Jonathan Foox, Katja Seltmann, Jeffrey Rosenfeld, Rob DeSalle
-CONTACT: jfoox@amnh.org
-LICENSE: [License info]
+AUTHORS: Jonathan Foox, Katja Seltmann, Jeffrey Rosenfeld, Rob DeSalle<br>
+CONTACT: jfoox@amnh.org<br>
+LICENSE: [License info]<br>
 
 Description goes here.
 
-REQUIREMENTS:
-1. Input files must be placed in their own folder that contains no other files.
-2. Input filenames must end with .fa, .faa, .fas, or .fasta.
+REQUIREMENTS:<br>
+1. Input files must be placed in their own folder that contains no other files.<br>
+2. Input filenames must end with .fa, .faa, .fas, or .fasta.<br>
 
 DEPENDENCIES:
 - Venninator was written for Python 2.7.x
@@ -18,5 +18,5 @@ DEPENDENCIES:
 - BioPython
 - MCL
 
-TO RUN:
+TO RUN:<br>
 [user folder]$ python venninator.py
