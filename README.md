@@ -4,7 +4,7 @@ October 23, 2015
 
 AUTHORS: Jonathan Foox, Katja Seltmann, Jeffrey Rosenfeld, Rob DeSalle<br>
 CONTACT: jfoox@amnh.org<br>
-LICENSE: [License info]<br>
+LICENSE: MIT License (MIT)<br>
 
 Description goes here.
 
