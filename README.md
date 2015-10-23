@@ -1,6 +1,6 @@
-VENNINATOR: Gene Content Matrix Assembler using Orthologs Clustered under Expect Value Gradients.
-Version 0.1
-October 23, 2015
+VENNINATOR: Gene Content Matrix Assembler using Orthologs Clustered under Expect Value Gradients.<br>
+Version 0.1<br>
+October 23, 2015<br>
 
 AUTHORS: Jonathan Foox, Katja Seltmann, Jeffrey Rosenfeld, Rob DeSalle<br>
 CONTACT: jfoox@amnh.org<br>
